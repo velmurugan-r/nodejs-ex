@@ -299,6 +299,14 @@ $ git push</pre>
                    <span class="code" id="count-value">No database configured</span>
                    </p>
                 <%} %>
+                <p>Request Ip:
+                <% if (reqIP) { %>
+                   <span class="code" id="count-value"><%=reqIP%></span>
+                   </p>
+                <% } else { %>
+                   <span class="code" id="count-value">No request configured</span>
+                   </p>
+                <%} %>
           </section>
         </div>
 
