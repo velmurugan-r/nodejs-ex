@@ -90,7 +90,11 @@ app.get('/', function (req, res) {
       res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null, reqIP: req.ip});
+    var reqIPAdd = req.headers['x-forwarded-for'] || 
+     req.connection.remoteAddress || 
+     req.socket.remoteAddress ||
+     (req.connection.socket ? req.connection.socket.remoteAddress : null);
+    res.render('index.html', { pageCountMessage : null, reqIP: reqIPAdd});
   }
 });
 
